@@ -1,0 +1,255 @@
+#ayusinNiyoTo {
+    
+    text-align: center;
+    margin-top: 200px;
+    
+}
+
+body.index{
+    
+    background-image:url("bg2.png");
+	background-repeat:no-repeat;
+    background-size: cover;
+    
+}
+
+body.game{
+	background-image:url("bg2.png");
+	background-repeat:no-repeat;
+    background-size: cover;
+}
+
+.par{
+    
+    width:100%;
+    height:80%;
+    color:#FFFFFF;
+    font-family: 'Syne Mono', monospace;
+    margin-top:10%;
+    text-align:center;
+    background: rgba(184,169,165,0.4);
+    
+}
+
+
+
+.bpar{
+    
+    font-size:69px; /* nice */
+    
+}		
+
+.apar{
+    
+    font-size:24px;
+    color:#FFFFFF;
+    
+	}
+.apar:hover{
+    
+    text-decoration:line-through;
+    color:#F00;
+}
+
+.back{
+    
+    width:auto;
+    height:auto;
+    margin-top: 20px;
+    margin-left:12px;	
+    
+}
+
+#game{
+	text-align:center;
+	vertical-align:center;
+	display:none;
+	padding:175px 0;
+	font-family: 'Syne Mono', monospace;
+	font-size:69px;
+	color:#FFFFFF;
+				
+}
+
+
+#back{
+    
+    width:auto;
+    height:auto;
+    padding-top: 20px;
+    padding-left:12px;	
+    
+}
+
+#lives{
+
+    margin:10px;
+    font-family: 'Times New Roman';
+    padding: 5px;
+    width: 170px;
+    position: absolute;
+    bottom: 130px;
+    text-align:center;
+    background: rgba(211,211,211,1);
+    border-radius:10px;
+    
+}
+
+#score{
+    margin-right:10px;
+    font-weight: bold;
+    font-family: 'Times New Roman';
+    font-size: 2rem;
+    padding: 5px;
+    width: 150px;
+    position: absolute;
+    bottom: 130px;
+    left: 1163px;
+    text-align:center;
+    background: rgba(211,211,211,1);
+    border-radius:10px;
+}
+
+
+#wordInput {
+
+    font-family: 'Times New Roman';
+    font-size: 1.5rem;
+    outline: none;
+    resize: none;
+    margin: 10px auto;
+    padding: 10px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    text-align:center;
+    background: rgba(211,211,211,0.8);
+    
+}
+ 
+#student{
+	color:black;
+    width:300px;
+	width:300px;
+	top:70px;
+    text-align: center;
+    position:relative;
+	
+}
+ 
+ 
+#boss{
+	color:black;
+    width:300px;
+	height:300px;
+    left:1020px;
+	top:-250px;
+    text-align: center;
+    position:relative;
+	
+} 
+.display {
+    color:black;
+    width:150px;
+    padding:5px;
+    left:1023px;
+	top:-175px;
+    text-align: center;
+    position:relative;
+    background-color: white;
+    border-radius:10px;
+    border: 5px solid navy;
+    background: rgba(255,255,255,1);
+    animation: module 20s linear infinite;
+    cursor: pointer;
+    
+}
+
+.display:hover {
+    
+    border: 5px solid cornflowerblue;
+    
+}
+
+@keyframes module {
+    from {left: -150px;}
+    to {left:-723px;}
+}
+                      
+.right {
+    color:green;
+    font-weight: bold
+}
+
+.wrong {
+    color:red;
+    font-weight: bold;
+}
+
+.selected {
+    border-color: blue
+}
+
+.instruc{
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.contentins{
+    
+    font-family: 'Syne Mono', monospace;
+    width:90%;
+    color:#FFFFFF;
+    background: rgba(0, 0, 0, 0.4);	
+    padding-right: 10px;	
+    padding-left: 10px;	
+    margin: auto;
+    font-size: 5px;
+    
+}
+
+.tip{
+    
+    text-align: justify;
+    text-justify: inter-word;
+    
+}
+.tipins{
+    
+    font-family: 'Syne Mono', monospace;
+    width:90%;
+    color:#FFFFFF;
+    background: rgba(0, 0, 0, 0.4);	
+    padding-right: 10px;	
+    padding-left: 10px;	
+    margin: auto;
+    font-size: 5px;
+    
+}
+	
+.about{ 
+    
+    text-align: justify;
+    text-justify: inter-word;
+    
+}
+.infoabout{
+    
+    font-family: 'Syne Mono', monospace;
+    width:90%;
+    color:#FFFFFF;
+    background: rgba(0, 0, 0, 0.4);	
+    padding-right: 10px;	
+    padding-left: 10px;	
+    margin: auto;
+    
+}
+
+
+
+
+
+
+
+
+

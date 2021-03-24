@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <title>Module Madness</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+        
+        <link rel="stylesheet" type ="text/css" href="styling.css" /> 
+        
+    </head>
+    <body class="game">
+	
+		<div id="back"><a href="index.html"><img src="back(1).png" width="51" height="40"></a></div>
+		
+		
+		<div id="game">
+			<p id="par">GAME<br>OVER</p>
+		</div>
+		
+		<div>
+		<div id="student">
+		<img src="student.png" width="300" height="300">
+		</div>
+		
+		<div id="boss">
+		<img src="teacher.png" width="300" height="300" >
+		
+		<div class="display" id='module'>
+            <div id='hold'></div>
+        </div>
+		</div>
+		
+		<div id="lives">
+			<table>
+				<tr id="myRow">
+					<td><h3>Lives: </h3></td>
+					<td><h5>❤️</h5></td>
+					<td><h5>❤️</h5></td>
+					<td><h5>❤️</h5></td>
+				</tr>
+			</table>
+		</div>
+        
+        <div id='score'><p>Points: 0</p></div>
+        
+        
+		
+		<input type="text" class="form-control" id="wordInput" onkeydown="enterCheck();" autofocus>
+        
+        
+        <script>
+            
+// array of words to be used ~~~~~~~~~~~''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            
+            var words = [
+                "During Germany's militarism, the Nazi party rose into power in Germany.", 
+                         
+                "The Japanese were affected by worldwide economic depression and lost trust or their leaders.", 
+                         
+                "The failure of the Leagues of Nations consists of them having no capacity of preventing military aggression and invasion.", 
+                
+                "The Rise of Facism means a ''political belief that focuses on the extreme nationalism & a dictatorship of one leader with only one party.''", 
+                
+                "Archduke Franz Ferdinand and his wife were assassinated in Sarajevo on June 28, 1914.", 
+                
+                "The Allies consists of Great Britain, France, Russia, Italy, and later on, the United States.", 
+                
+                "The Central Powers consist of Germany, Austria-Hungary, the Ottoman Empire, and Bulgaria.",
+                
+                "Imperialism is a policy in which a strong nation seeks to dominate other countries politically, economically, and socially.", 
+                
+                "During World War I, 8.5 million combatants died and around 21 million were wounded.", 
+
+                "During World War I, a total amount of $338 billion was lost, 10 million civilians died, and millions of civilians lost their livelihoods and properties.", 
+
+                "Contemporary Nationalism can be seen through any national events that came after the end of World War I.",
+
+                "Vladimir Ilyich Ulyanov is the leader of the Bolsheviks.", 
+                
+                "Vladimir Ilyich Ulyanov's slogan was ''Peace, Land, and Bread'' which attracted people to support his revolutions against the Czars.",
+                
+                "The name Stalin from leader Joseph Stalin means ''man of steel.''", 
+                
+                "Kristallnacht is also known as the Night of the Broken Glass.", 
+                
+                "The Final Stage, which was proposed by Hitler, consists of his mission to kill thousands of Jews each day by death due to starvation, death due to imprisonment in gas chambers, or death due to medical experimentation by German doctors.", 
+                
+                "The Germans believed that they were of the ''superior race'' and other races such as the Jews were considered inferior.", 
+                
+                "The Nuremberg laws were implemented by the Nazis in September 1935.", 
+                
+                "The Third Industrial Revolution is known for Automation using digital electronics and information technology.", 
+                
+                "British engineer Guy Stewart Callencdar remarked that the United States and the North Atlantic region experienced significant heat during the Industrial Revolution.", 
+                
+                "Respiration is the process by which energy from organic materials are released to be used in the different life processes in an organism.", 
+                
+                "The diffusion rate across gas exchange surfaces is influenced by several factors due to Fick's law.", 
+                
+                "Lenticels are non-suberized pores/openings on the cork of mature roots and woody stems.", 
+                
+                "Lung capacity is the combination of the lung volumes.", 
+                
+                "Statistics Module 18: Random Variable and its Probability Distribution, Part 2 - Binomial Random Variable, Expected Value and Standard Deviation", 
+                
+                "Statistics Module 21: Sampling distribution (Part 3) - The Student's t - distribution", 
+                
+                "El Filibusterismo, Module 34, Kabanata 19 and 20 - Ang Mitsa at Ang Nagpapalagay", 
+                
+                "Excretion aids in the elimination of waste products of osmoregulatory processes.", 
+                
+                "Saltwater fishes live in a hypertonic environment.", 
+                
+                "Freshwater fishes live in a hypotonic environment.", 
+                
+                "Ammonia is very toxic and needs a lot of water to be excreted out of the body.",
+                
+                "The types of nitrogenous wastes are ammonia, urea, and uric acid.",
+                
+                "The juxtaglomerular apparatus is made up of the macula densa and the juxtaglomerular cells.",
+                
+                "The atrial natriuretic peptide (ANP) opposes the action of RAAS.",
+                
+                "The Rose from the literature, ''Dr. Heidegger’s Experiment,'' represents the youth, bride, natural balance, freedom, and the inevitability of death.", 
+                
+                "The magic book from the literature, ''Dr. Heidegger's Experiment,'' represents strong forces and moral stability.", 
+                
+                "In the literature, ''The Cask of Amontillado,'' Montresor seeks revenge on Fortunato by chaining Fortunato and prisoning him behind a wall.", 
+                
+                "Widow Wycherly from the  the literature, ''Dr. Heidegger's Experiment,'' was a great beauty who lived in deep seclusion. ", 
+                
+                "Laws of Logarithms and Change of Base Formula 1.", 
+                
+                "There are various laws of logarithms such as the product rule for logarithms, quotient rule of logarithms, power rule of logarithms, and the change-of-base formula.", 
+                
+                "Modeling exponential and logarithmic functions", 
+                
+                "There are three types of exponential growth rate which are Doubling Time, General Formula, and the Relative Growth Rate.", 
+                
+                "Dynamics is a branch of mechanics that deals with the study of motion and its causes.",
+
+                
+                
+            ];
+            
+// variables ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            
+            const moduleElement = document.getElementById('module');
+            const inputElement = document.getElementById('wordInput');
+            const holdElement = document.getElementById('hold');
+            
+            var points = 0;
+            var correct = false;
+            var blessy = 0;
+			var lives = 3;
+            
+// randomize ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            
+            words.sort(function(a, b){
+                return a.length - b.length;
+            })
+            holdElement.innerText = words[blessy]
+            
+            
+            
+            
+// func that assigns right or wrong class ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            
+            inputElement.addEventListener('input', () => {
+                const arrayModule =  moduleElement.querySelectorAll('span')
+                const arrayValue = inputElement.value.split('')
+                arrayModule.forEach((characterSpan, index) => {
+                    const character = arrayValue[index]
+                    if (character == null) {
+                        characterSpan.classList.remove('right')
+                        characterSpan.classList.remove('wrong')
+                        correct = false;
+                    }
+                    else if (character == characterSpan.innerText) {
+                        characterSpan.classList.add('right')
+                        characterSpan.classList.remove('wrong')
+                        correct = true;
+                    }
+                    else {
+                        characterSpan.classList.add('wrong')
+                        characterSpan.classList.remove('right')
+                        correct = false;
+                    }
+                })
+            })
+            
+// typeCheck ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            
+            function typeCheck(){ 
+                
+                holdElement.innerText.split('').forEach(character => {
+                    const characterSpan = document.createElement('span')
+                    characterSpan.innerText = character
+                    moduleElement.appendChild(characterSpan)
+                    holdElement.innerHTML = ('');
+                })
+            }
+
+            typeCheck()
+            
+			
+            
+            
+// checkDead ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				
+			var checkDead = setInterval(function(){
+                
+                var moduleLeft = parseInt(window.getComputedStyle(module).getPropertyValue("left"));
+				console.log(moduleLeft);
+				if (moduleLeft < -718){
+                    var row = document.getElementById("myRow");
+					row.deleteCell(1);
+					lives -= 1;
+					console.log('Lives: ' + lives);
+
+                    document.getElementById('module').style.display = 'none';
+
+                    setTimeout(function(){
+                        
+                        document.getElementById('module').style.display = 'block';
+                        blessy += 1;
+                        holdElement.innerText = words[blessy];
+                        moduleElement.innerHTML='';
+                        
+                        typeCheck()
+                        
+                        console.log('words blessy: ' + words[blessy]);
+                        console.log('time-out: PASSED');
+                    
+                    }, 1000);
+				}
+				
+				if(lives == 0){
+						document.getElementById('back').style.background = 'rgba(255,0,0,0.8)';
+						document.getElementById('module').style.display = 'none';
+						document.getElementById('student').style.display = 'none';
+						document.getElementById('boss').style.display = 'none';
+						document.getElementById('score').style.display = 'none';
+						document.getElementById('wordInput').style.display = 'none';
+						document.getElementById('lives').style.display = 'none';
+						document.getElementById('game').style.display = 'block';
+						document.getElementById('game').style.background = 'rgba(255,0,0,0.8)';
+						document.getElementById('game').style.height = '637px';
+						document.getElementById('game').style.width = '1323px';
+						document.getElementById('back').style.background = 'rgba(255,0,0,0.8)';
+					};
+			},50);
+            
+// enterCheck ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			
+            function enterCheck(){
+                if(event.keyCode === 13){
+                    
+                    if(document.getElementById('wordInput').value === words[blessy]){
+                        console.log('correct: ' + correct);
+                        points += 1;
+                        document.getElementById('score').innerHTML = 'Points: ' + points;
+						console.log('input: ' + document.getElementById('wordInput').value);
+                        console.log('Points: ' + points);
+                    }
+                    
+                    else{
+                        
+                        console.log('correct: ' + correct)
+                        var row = document.getElementById("myRow");
+                        row.deleteCell(1);
+                        lives -= 1;
+                        console.log('Lives: ' + lives);
+                        console.log('Points' + points) ;
+                    }
+                    //hide module
+                    document.getElementById('module').style.display = 'none';
+                    //wait and show w different word 
+                    setTimeout(function(){
+                        
+                        document.getElementById('module').style.display = 'block';
+                        blessy += 1;
+                        holdElement.innerHTML = words[blessy];
+                        moduleElement.innerHTML = '';
+                        typeCheck();
+                        
+                        console.log('words blessy: ' + words[blessy]);
+                        console.log('time-out: PASSED');
+                    
+                    }, 1000);
+                    
+                    
+                    console.log("Enter keypress registered.");
+                    setTimeout(function(){
+                    inputElement.value = '';
+                    },100);
+                    return true;
+                    
+                }
+                else{
+                    return false;
+                }
+            }
+            
+            
+            function congrats(){
+                if(points >= 44){
+                    alert('congrats, perfect score!')
+                } 
+            }
+
+// make fast!! vroom vroom~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            
+        </script>
+        
+    </body>
+</html>
+
+
+
+
+
+
+
+
